@@ -17,11 +17,11 @@ console.log(paragrafos);
 function criarElemento(tag, classe, conteudo){
   const elemento = document.createElement(tag);
   classe ? elemento.classList.add(classe): ''; //se classe existir ele retorna aquilo, se nao, nao retorna nada
-  conteudo ? elemento.innerHTML = conteudo : '';
+  conteudo ? elemento.innerHTML = conteudo : null; //posso usar tanto uma string vazia quanto o null
   return elemento
 }
 
-console.log(criarElemento('li', 'azul', 'esse é o conteudo'))
+console.log(criarElemento('li', 'azul', 'esse é o conteudo')) //n precisa validar a tag, pois sem, nao roda msm
 
 // Crie uma nova função utilizando a anterior como base
 // essa nova função deverá sempre criar h1 com a
