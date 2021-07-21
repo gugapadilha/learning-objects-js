@@ -132,3 +132,95 @@ Object.defineProperties(moto4, {
 });
 
 console.log(moto4)
+
+
+
+//OBJECT.GETOWNPROPERTYDESCRIPTORS(OBJ)
+//Lista todos os métodos e propriedades de um objeto, com as suas devidas configurações.
+
+Object.getOwnPropertyDescriptors(Array);
+// Lista com métodos e propriedades e Array
+
+Object.getOwnPropertyDescriptors(Array.prototype);
+// Lista com métodos e propriedades do protótipo de Array
+
+Object.getOwnPropertyDescriptor(window, 'innerHeight');
+// Puxa de uma única propriedade
+
+
+
+//OBJECT.KEYS(OBJ), OBJECT.VALUES(OBJ) OBJECT.ENTRIES(OBJ)
+//Object.keys(obj) retorna uma array com as chaves de todas as propriedades diretas e enumeráveis do objeto. Object.values(obj) retorna uma array com os valores do objeto. Object.entries(obj) retorna uma array com array's contendo a chave e o valor.
+
+Object.keys(Array);
+// [] vazia, pois não possui propriedades enumeráveis
+
+const carro4 = {
+  marca: 'Ford',
+  ano: 2018,
+}
+Object.keys(carro4);
+// ['marca', 'ano']
+Object.values(carro4);
+// ['Ford', 2018]
+Object.entries(carro4);
+// [['marca', 'Ford'], ['ano', 2018]]
+
+
+
+
+//OBJECT.GETOWNPROPERTYNAMES(OBJ)
+//Retorna uma array com todas as propriedades diretas do objeto (não retorna as do protótipo).
+
+Object.getOwnPropertyNames(Array);
+// ['length', 'name', 'prototype', 'isArray', 'from', 'of']
+
+Object.getOwnPropertyNames(Array.prototype);
+// [..., 'filter', 'map', 'every', 'some', 'reduce', ...]
+
+const carro6 = {
+  marca: 'Ford',
+  ano: 2018,
+}
+Object.getOwnPropertyNames(carro6);
+// ['marca', 'ano']
+
+
+
+//OBJECT.GETPROTOTYPEOF() E OBJECT.IS()
+//Object.getPrototypeOf(), retorna o protótipo do objeto. Object.is(obj1, obj2) verifica se os objetos são iguais e retorna true ou false.
+
+const frutose = ['Banana', 'Pêra']
+console.log(Object.getPrototypeOf(frutose)) //MESMA COISA
+console.log(Array.prototype) //MESMA COISA
+
+const frutas = ['Banana', 'Pêra']
+Object.getPrototypeOf(frutas);
+Object.getPrototypeOf(''); // String
+
+const frutas1 = ['Banana', 'Pêra'];
+const frutas2 = ['Banana', 'Pêra'];
+
+Object.is(frutas1, frutas2); // false
+
+
+
+
+//OBJECT.FREEZE(), OBJECT.SEAL(), OBJECT.PREVENTEXTENSIONS()
+//Object.freeze() impede qualquer mudança nas propriedades. Object.seal() previne a adição de novas propriedades e impede que as atuais sejam deletadas. Object.preventExtensions() previne a adição de novas propriedades.
+
+
+const carro7 = {
+  marca: 'Ford',
+  ano: 2018,
+}
+//Object.freeze(carro7) congela carro pra que nao seja alterado (RETORNA FORD AINDA)
+//Object.seal(carro7) não permite adicionar mais classes e nem deletar quando usa o seal
+//carros.portas = 4;
+
+//Object.preventExtensions() previne que acrescente novas propriedas, mas permite deletar antigas.
+
+
+carro7.marca = 'Honda'
+console.log(carro7);
+console.log(Object.isFrozen(carro))
