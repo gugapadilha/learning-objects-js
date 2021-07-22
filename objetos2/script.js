@@ -224,3 +224,55 @@ const carro7 = {
 carro7.marca = 'Honda'
 console.log(carro7);
 console.log(Object.isFrozen(carro))
+
+
+
+//PROPRIEDADES E MÉTODOS DO PROTÓTIPO
+//Já que tudo em JavaScript é objeto, as propriedades abaixo estão disponíveis em todos os objetos criados a partir de funções construtoras. {}.constructor retorna a função construtora do objeto.
+
+const frutas3 = ['Banana', 'Uva'];
+frutas.constructor; //Array
+
+const frase = 'Isso é uma String';
+frase.constructor; //String
+
+const numeros = 82
+numeros.constructor; //Number
+
+
+
+//{}.HASOWNPROPERTY('PROP') E {}.PROPERTYISENUMERABLE('PROP')
+//Verifica se possui a propriedade e retorna true. A propriedade deve ser direta do objeto e não do protótipo. O {}.propertyIsEnumerable() verifica se a propriedade é enumerável.
+
+
+const frutas5 = ['Banana', 'Uva'];
+
+frutas.hasOwnProperty('map'); // false
+Array.hasOwnProperty('map'); // false
+Array.prototype.hasOwnProperty('map'); // true
+
+Array.prototype.propertyIsEnumerable('map'); // false
+window.propertyIsEnumerable('innerHeight'); // true
+
+
+//{}.ISPROTOTYPEOF(VALOR) 
+const frutas6 = ['Banana', 'Uva'];
+Array.prototype.isPrototypeOf(frutas); // true
+
+
+
+const frutas7 = ['Banana', 'Uva', 'Melancia']
+const frase2 = 'Oi frase'
+const somar = function(a, b){
+  return a + b
+}
+
+const carro5 = {
+  marca: 'Ford'
+}
+
+console.log(frutas7.toString());
+
+console.log(Object.prototype.toString.call(frutas7)); // objeto do tipo ARRAY
+console.log(Object.prototype.toString.call(frase)); // objeto do tipo STRING
+console.log(Object.prototype.toString.call(carro5)); // objeto do tipo OBJETO
